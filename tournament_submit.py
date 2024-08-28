@@ -322,10 +322,12 @@ class TournamentSubmit(BaseTournament):
                 reaction = '❌'
                 print(f"{type(e).__name__}: {e}")
                 # Replace the 'Running...' message if it got that far
+                import traceback
+                error = ''.join(traceback.format_exception(e))
                 if msg is not None:
-                    await msg.edit(content=f"```{type(e).__name__}: {e}```")
+                    await msg.edit(content=error)
                 else:
-                    await ctx.send(f"```{type(e).__name__}: {e}```")
+                    await ctx.send(error)
 
         await ctx.message.add_reaction(reaction)
 
