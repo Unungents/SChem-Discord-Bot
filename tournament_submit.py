@@ -323,7 +323,7 @@ class TournamentSubmit(BaseTournament):
                 print(f"{type(e).__name__}: {e}")
                 # Replace the 'Running...' message if it got that far
                 import traceback
-                error = ''.join(traceback.format_exception(e))
+                error = ''.join(traceback.format_exc())
                 if msg is not None:
                     await msg.edit(content=error)
                 else:
