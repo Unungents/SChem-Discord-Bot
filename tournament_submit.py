@@ -318,7 +318,8 @@ class TournamentSubmit(BaseTournament):
                 if msg is not None:
                     await msg.edit(content=f"{type(e).__name__}: {e}")
                 else:
-                    await ctx.send(f"{type(e).__name__}: {e}")
+                    import traceback
+                    traceback.print_exception(e)
 
         await ctx.message.add_reaction(reaction)
 
